@@ -1,22 +1,3 @@
-gallery-section {
-    padding: 60px 0;
-  }
-  
-  .search-form {
-    display: flex;
-    width: 600px;
-    margin: 0 auto;
-    margin-bottom: 40px;
-  }
-  
-  .search-input {
-    height: 40px;
-    flex-grow: 1;
-    font-size: 18px;
-    padding-left: 15px;
-    border: 1px solid #303030;
-  }
-  
   .search-btn,
   .load-more {
     font-size: 14px;
@@ -38,33 +19,8 @@ gallery-section {
   .load-more.is-hidden {
     display: none;
   }
-  
-  .search-btn:hover,
-  .search-btn:focus,
-  .load-more:hover,
-  .load-more:focus {
-    background-color: #27ae60;
-  }
-  
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -30px;
-    margin-top: -30px;
-    margin-bottom: 20px;
-  }
-  
-  .gallery__item {
-    flex-basis: calc((100% - 120px) / 4);
-    margin-left: 30px;
-    margin-top: 30px;
-  }
-  
-  .gallery-img {
-    width: 100%;
-    height: 100%;
-    max-width: unset;
-    object-fit: cover;
+  .loader.active {
+    display: block;
   }
   
   .loader {
@@ -73,18 +29,18 @@ gallery-section {
     height: 48px;
     border-radius: 50%;
     position: relative;
+    top: 100px;
+    left: 500px;
     animation: rotate 1s linear infinite
   }
-  .loader.active {
-    display: block;
-  }
+  
   .loader::before , .loader::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #04a927;
+    border: 5px solid #fff;
     animation: prixClipFix 2s linear infinite ;
   }
   .loader::after{
@@ -102,3 +58,117 @@ gallery-section {
       50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
       75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
   }
+  .search-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  
+  .search-form input {
+    width: 20%;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    outline: none;
+    /* background-color: #fff;*/
+    padding: 8px 10px;    
+  }
+  
+  .search-form button {  
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    border: none;
+    background-color: #94c24c;  
+    border-radius: 0 5px 5px 0;
+    padding: 8px 20px;  
+    cursor: pointer;
+  }
+  
+   .search-form button:hover {
+     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+     background-color: rgba(204, 51, 51, 0.5);
+    transition: all 0.3s;
+  } 
+  
+  .load-more.is-hidden {
+    display: none;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+  }
+  
+  .gallery,
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .gallery {
+    margin-left: -20px; 
+    padding-top: 30px;
+    justify-content: center;  
+  }
+  
+  .gallery__link {
+    margin-top: 20px;
+    margin-left: 20px;
+    min-width: 320px;
+    flex-basis: calc((100% - 80px) / 4);
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  
+  .gallery__link:hover,
+  .gallery__link:focus {
+    transform: scale(1.05);
+  }
+  
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+  }
+  
+  .gallery-item__img {
+    display: block;
+    height: 30vh;
+    object-fit: cover;  
+  }
+  
+  .info {
+    padding: 10px;
+    justify-content: space-around;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: smaller;
+  }
+  
+  .info-item:not(:first-child) {
+    margin-left: 5px;
+  }
+
+
+#arrowTop {
+    font-size: 2.5em;        
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#arrowTop::before {
+    content: '🔝';        
+}
+

@@ -1,5 +1,7 @@
 {{#each this}}
-  <li class='gallery__item'>
-    <img src='{{urls.small}}' alt='{{alt_description}}' class='gallery-img' />
+<a class="gallery__link" href="{{urls.regular}}">
+  <li class='gallery-item'>
+    <img class="gallery-item__img" src='{{urls.small}}' alt='{{alt_description}}' class='gallery-img' />
   </li>
+  </a>
 {{/each}}
