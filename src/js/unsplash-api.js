@@ -42,7 +42,7 @@ export class UnsplashAPI {
   constructor(perPage) {
     this.page = 1;
     this.query = null;
-    this.perPage = perPage;
+    this.perPage = 30;
   }
 
   getPhotos() {
