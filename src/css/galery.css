@@ -114,6 +114,20 @@
   }
   
   .gallery__link {
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+
+
+  }
+  
+  .gallery__link:hover,
+  .gallery__link:focus {
+    transform: scale(1.05);
+  }
+  .gallery-item {
     margin-top: 20px;
     margin-left: 20px;
     min-width: 320px;
@@ -121,18 +135,7 @@
     border: none;
     border-radius: 10px;
     overflow: hidden;
-    transition: all 0.3s;
-  }
-  
-  .gallery__link:hover,
-  .gallery__link:focus {
-    transform: scale(1.05);
-  }
-  
-  .gallery-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;  
+    transition: all 0.3s; 
   }
   
   .gallery-item__img {
