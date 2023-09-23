@@ -4,16 +4,14 @@ import { galleryEl, formEl, loadMoreBtn } from "./refs";
 import { hideLoader, showLoader, hideMoreBtn, showMoreBtn } from "./function";
 
 const unsplashAPI = new UnsplashAPI(12);
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-let gallery = new SimpleLightbox('.gallery a', { /* options */enableKeyboard: true, });
+
 formEl.addEventListener("submit", onSubmit);
 loadMoreBtn.addEventListener("click", onMoreData);
 
 function onSubmit (event) {
   event.preventDefault();
   unsplashAPI.page = 1;
-  gallery.destroy();
+  
   const searchQuery = event.currentTarget.elements['user-search-query'].value.trim();
 
   if (!searchQuery) {
@@ -26,7 +24,8 @@ function onSubmit (event) {
 
   unsplashAPI.getPhotos().then(resp => {
     galleryEl.innerHTML = createGellaryCard(resp.results);
-    gallery.refresh();
+    console.log(resp.results);
+   
     alert(`Hi we found ${resp.total} fotos`)
     if (resp.total < unsplashAPI.perPage) return;
     showMoreBtn();
@@ -44,7 +43,7 @@ function onMoreData (event) {
   
   unsplashAPI.getPhotos().then(resp => {
     galleryEl.insertAdjacentHTML('beforeend', createGellaryCard(resp.results));
-    gallery.refresh();
+    
     if (unsplashAPI.page === resp.total_pages) {
     hideMoreBtn();
     alert("You reached the end")
