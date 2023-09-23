@@ -2,6 +2,7 @@ import createGellaryCard from "../templates/gellary-card.hbs"
 import { UnsplashAPI } from "./unsplash-api";
 import { galleryEl, formEl, loadMoreBtn } from "./refs";
 import { hideLoader, showLoader, hideMoreBtn, showMoreBtn } from "./function";
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 const unsplashAPI = new UnsplashAPI(12);
 let simpleLightBox;
